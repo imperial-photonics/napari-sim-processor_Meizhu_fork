@@ -65,7 +65,7 @@ class BaseSimProcessor:
     usePhases = False   # Whether to measure and use individual phases in calibration/reconstruction
     _lastN = 0      # To track changes in array size that will force array re-allocation
     _M = None       # Mand reconstruction matrix
-    img2 = None
+
 
     def __init__(self):
         # self._nsteps = 0
@@ -74,6 +74,7 @@ class BaseSimProcessor:
         self.ky = np.zeros((self._nbands, 1), dtype=np.single)
         self.p = np.zeros((self._nbands, 1), dtype=np.single)
         self.ampl = np.zeros((self._nbands, 1), dtype=np.single)
+        self.img2 = None
 
     def _allocate_arrays(self):
         """ define matrix """
