@@ -65,6 +65,7 @@ class BaseSimProcessor:
     usePhases = False   # Whether to measure and use individual phases in calibration/reconstruction
     _lastN = 0      # To track changes in array size that will force array re-allocation
     _M = None       # Mand reconstruction matrix
+    img2 = None
 
     def __init__(self):
         # self._nsteps = 0
