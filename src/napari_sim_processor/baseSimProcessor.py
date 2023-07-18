@@ -75,6 +75,7 @@ class BaseSimProcessor:
         self.p = np.zeros((self._nbands, 1), dtype=np.single)
         self.ampl = np.zeros((self._nbands, 1), dtype=np.single)
         self.img2 = 5
+        print('qwert')
 
     def _allocate_arrays(self):
         """ define matrix """
