@@ -596,6 +596,7 @@ class BaseSimProcessor:
         img2 = np.sum(np.real(fft.ifft2(self._carray)).real * self._reconfactor, 0)
         self._imgstore = img.copy()
         self._bigimgstore = fft.ifft2(fft.fft2(img2) * self._postfilter).real
+        self.img2 = img2
         return self._bigimgstore
 
     def reconstruct_rfftw(self, img):
@@ -605,6 +606,7 @@ class BaseSimProcessor:
         img2 = np.sum(fft.irfft2(self._carray1) * self._reconfactor, 0)
         self._imgstore = img.copy()
         self._bigimgstore = fft.irfft2(fft.rfft2(img2) * self._postfilter[:, 0:self.N + 1])
+        self.img2 = img2
         return self._bigimgstore
 
     def reconstruct_ocv(self, img):
@@ -798,6 +800,7 @@ class BaseSimProcessor:
         img3[:, offs + blocksize:2 * self.N, 0:2 * self.N] = fft.irfft(imf, nimg, 0)
 
         res = fft.irfft2(fft.rfft2(img3) * self._postfilter[:, :self.N + 1])
+        self.img2 = img2
         return res
 
     def batchreconstruct_cupy(self, img):

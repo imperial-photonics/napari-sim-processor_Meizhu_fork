@@ -379,7 +379,7 @@ class SimAnalysis(QWidget):
                                             name = im_name,
                                             scale = scale,
                                             colormap = colormap,
-                                            interpolation = 'bilinear')
+                                            interpolation = 'linear')
         self.center_stack(image_values)
         # self.move_layer_to_top(layer)
         if kwargs.get('autoscale') is True:
