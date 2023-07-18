@@ -73,7 +73,7 @@ class BaseSimProcessor:
         self.kx = np.zeros((self._nbands, 1), dtype=np.single)
         self.ky = np.zeros((self._nbands, 1), dtype=np.single)
         self.p = np.zeros((self._nbands, 1), dtype=np.single)
-        # self.ampl = np.zeros((self._nbands, 1), dtype=np.single)
+        self.ampl = np.zeros((self._nbands, 1), dtype=np.single)
         self.img2 = None
 
     def _allocate_arrays(self):
@@ -599,6 +599,8 @@ class BaseSimProcessor:
         self._imgstore = img.copy()
         self._bigimgstore = fft.ifft2(fft.fft2(img2) * self._postfilter).real
         self.img2 = img2
+        plt.figure()
+        plt.imshow(self.img2)
         return self._bigimgstore
 
     def reconstruct_rfftw(self, img):
@@ -803,6 +805,8 @@ class BaseSimProcessor:
 
         res = fft.irfft2(fft.rfft2(img3) * self._postfilter[:, :self.N + 1])
         self.img2 = img2
+        plt.figure()
+        plt.imshow(self.img2)
         return res
 
     def batchreconstruct_cupy(self, img):
