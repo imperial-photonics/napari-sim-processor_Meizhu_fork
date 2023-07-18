@@ -74,7 +74,7 @@ class BaseSimProcessor:
         self.ky = np.zeros((self._nbands, 1), dtype=np.single)
         self.p = np.zeros((self._nbands, 1), dtype=np.single)
         self.ampl = np.zeros((self._nbands, 1), dtype=np.single)
-        self.img2 = None
+        self.img2 = 5
 
     def _allocate_arrays(self):
         """ define matrix """
