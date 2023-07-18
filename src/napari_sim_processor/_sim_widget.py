@@ -498,7 +498,6 @@ class SimAnalysis(QWidget):
                     k_shape = (self.angles_number.val,1)   
                 else: 
                     raise(ValueError("Invalid phases or angles number"))
-                self.h.img2 = None
                 self.carrier_idx.set_min_max(0,k_shape[0]-1) # TODO connect carrier idx to angle if Sim_mode == SIM
                 self.h.debug = False
                 self.setReconstructor() 

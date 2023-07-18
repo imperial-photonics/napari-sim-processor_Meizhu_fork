@@ -73,7 +73,7 @@ class BaseSimProcessor:
         self.kx = np.zeros((self._nbands, 1), dtype=np.single)
         self.ky = np.zeros((self._nbands, 1), dtype=np.single)
         self.p = np.zeros((self._nbands, 1), dtype=np.single)
-        self.ampl = np.zeros((self._nbands, 1), dtype=np.single)
+        # self.ampl = np.zeros((self._nbands, 1), dtype=np.single)
         self.img2 = None
 
     def _allocate_arrays(self):
